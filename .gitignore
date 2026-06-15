@@ -1,0 +1,59 @@
+# MATLAB
+# Editor backups and autosave
+*~
+*.asv
+*.m~
+*.mlx~
+*.autosave
+# MATLAB build artifacts
+*.mex*         # compiled MEX files (.mexw64, .mexa64, etc.)
+*.slxc
+*.slxautosave
+/.mccGeneratedFiles/
+/.mex*/
+# MATLAB preferences and history
+*.matlab
+history.m
+
+# HTK (Hidden Markov Toolkit) outputs and temp files
+# Feature files (MFCCs, etc.)
+*.mfc
+*.htk
+# Model files and training artifacts
+hmmdefs
+macros
+proto
+models/
+hmm0/
+hmm1/
+hmm*/
+ci_mfcc_feats/
+stats/
+log/
+training/
+labels/
+# HTK temporary or workspace files
+*.rec
+*.htk_log
+
+# Audio files (generated or large raw data)
+*.wav
+*.WAV
+*.flac
+*.mp3
+
+# General
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+
+# Logs, checkpoints, temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Ignore model checkpoints and large data folders
+/models/
+/data/
