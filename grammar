@@ -1,0 +1,6 @@
+$digit = NULA | JEDNA | DVA | TRI | CTYRI | PET | SEST | SEDM | OSM | DEVET ;
+$operation = PLUS | MINUS | KRAT | DELENO | NADRUHOU | ODMOCNINA | PROCENT | PLUSMINUS ;
+$command = ROVNASE | SMAZAT | VYMAZAT | ZPET ;
+$separator = CARKA ;
+
+( SENT-START < $digit | $operation | $command | $separator > SENT-END )

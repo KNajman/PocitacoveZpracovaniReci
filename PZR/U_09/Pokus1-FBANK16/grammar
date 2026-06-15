@@ -1,0 +1,2 @@
+$digit = NULA | JEDNA | DVA | TRI | CTYRI | PET | SEST | SEDM | OSM | DEVET;
+( SENT-START ( $digit ) SENT-END )

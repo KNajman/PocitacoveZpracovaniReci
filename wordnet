@@ -1,0 +1,102 @@
+VERSION=1.0
+N=28   L=72   
+I=0    W=SENT-END            
+I=1    W=CARKA               
+I=2    W=!NULL               
+I=3    W=ZPET                
+I=4    W=VYMAZAT             
+I=5    W=SMAZAT              
+I=6    W=ROVNASE             
+I=7    W=PLUSMINUS           
+I=8    W=PROCENT             
+I=9    W=ODMOCNINA           
+I=10   W=NADRUHOU            
+I=11   W=DELENO              
+I=12   W=KRAT                
+I=13   W=MINUS               
+I=14   W=PLUS                
+I=15   W=DEVET               
+I=16   W=OSM                 
+I=17   W=SEDM                
+I=18   W=SEST                
+I=19   W=PET                 
+I=20   W=CTYRI               
+I=21   W=TRI                 
+I=22   W=DVA                 
+I=23   W=JEDNA               
+I=24   W=NULA                
+I=25   W=SENT-START          
+I=26   W=!NULL               
+I=27   W=!NULL               
+J=0     S=2    E=0    
+J=1     S=2    E=1    
+J=2     S=25   E=1    
+J=3     S=1    E=2    
+J=4     S=3    E=2    
+J=5     S=4    E=2    
+J=6     S=5    E=2    
+J=7     S=6    E=2    
+J=8     S=7    E=2    
+J=9     S=8    E=2    
+J=10    S=9    E=2    
+J=11    S=10   E=2    
+J=12    S=11   E=2    
+J=13    S=12   E=2    
+J=14    S=13   E=2    
+J=15    S=14   E=2    
+J=16    S=15   E=2    
+J=17    S=16   E=2    
+J=18    S=17   E=2    
+J=19    S=18   E=2    
+J=20    S=19   E=2    
+J=21    S=20   E=2    
+J=22    S=21   E=2    
+J=23    S=22   E=2    
+J=24    S=23   E=2    
+J=25    S=24   E=2    
+J=26    S=2    E=3    
+J=27    S=25   E=3    
+J=28    S=2    E=4    
+J=29    S=25   E=4    
+J=30    S=2    E=5    
+J=31    S=25   E=5    
+J=32    S=2    E=6    
+J=33    S=25   E=6    
+J=34    S=2    E=7    
+J=35    S=25   E=7    
+J=36    S=2    E=8    
+J=37    S=25   E=8    
+J=38    S=2    E=9    
+J=39    S=25   E=9    
+J=40    S=2    E=10   
+J=41    S=25   E=10   
+J=42    S=2    E=11   
+J=43    S=25   E=11   
+J=44    S=2    E=12   
+J=45    S=25   E=12   
+J=46    S=2    E=13   
+J=47    S=25   E=13   
+J=48    S=2    E=14   
+J=49    S=25   E=14   
+J=50    S=2    E=15   
+J=51    S=25   E=15   
+J=52    S=2    E=16   
+J=53    S=25   E=16   
+J=54    S=2    E=17   
+J=55    S=25   E=17   
+J=56    S=2    E=18   
+J=57    S=25   E=18   
+J=58    S=2    E=19   
+J=59    S=25   E=19   
+J=60    S=2    E=20   
+J=61    S=25   E=20   
+J=62    S=2    E=21   
+J=63    S=25   E=21   
+J=64    S=2    E=22   
+J=65    S=25   E=22   
+J=66    S=2    E=23   
+J=67    S=25   E=23   
+J=68    S=2    E=24   
+J=69    S=25   E=24   
+J=70    S=27   E=25   
+J=71    S=0    E=26   

@@ -1,0 +1,39 @@
+WARNING: no script file global.ded
+WARNING: no script file lexicon.ded
+
+Dictionary Usage Statistics
+---------------------------
+  Dictionary    TotalWords WordsUsed  TotalProns PronsUsed
+     lexicon        25         25         25         25
+        dict        25         25         25         25
+
+25 words required, 0 missing
+
+New Phone Usage Counts
+---------------------
+  1. carka :     1
+  2. ctyri :     1
+  3. deleno :     1
+  4. devet :     1
+  5. dva   :     1
+  6. jedna :     1
+  7. krat  :     1
+  8. minus :     1
+  9. nadruhou :     1
+ 10. nula  :     1
+ 11. odmocnina :     1
+ 12. osm   :     1
+ 13. pet   :     1
+ 14. plus  :     1
+ 15. plusminus :     1
+ 16. procent :     1
+ 17. rovnase :     1
+ 18. sedm  :     1
+ 19. sil   :     2
+ 20. sest  :     1
+ 21. smazat :     1
+ 22. tri   :     1
+ 23. vymazat :     1
+ 24. zpet  :     1
+
+Dictionary dict created
