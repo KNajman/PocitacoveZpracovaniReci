@@ -26,7 +26,7 @@ fs = 16000; % 16 kHz
 nBits = 16; % 16 bitů
 nChannels = 1; % Mono
 delkaZaznamu = 2.0; % 2 vteřiny
-jmeno_recnika = "Jan";
+jmeno_recnika = "Karel2";
 
 % Vytvoření složek
 if ~exist('nahravky_wav', 'dir'), mkdir('nahravky_wav'); end
