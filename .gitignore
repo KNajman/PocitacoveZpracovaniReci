@@ -57,3 +57,9 @@ __pycache__/
 # Ignore model checkpoints and large data folders
 /models/
 /data/
+
+# Hide voice recordings and sensitive data
+/nahravky_wav/
+/nahravky_param/
+/PZR/
+.wav
