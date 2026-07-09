@@ -58,8 +58,10 @@ __pycache__/
 /models/
 /data/
 
+# Hide all hmm* folders (HMM models)
+hmm*/
+
 # Hide voice recordings and sensitive data
-/nahravky_wav/
-/nahravky_param/
-/PZR/
+nahravky_wav/
+nahravky_param/
 .wav
