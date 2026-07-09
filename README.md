@@ -35,29 +35,69 @@ Pro reprodukci celého procesu trénování a testování jsem víceméně pomoc
 
 2. Spustit dávku **01_MakeWordnet.bat** pro vytvoření slovní sítě (wordnet).
 
-3. Pomocí dávky **02_MakeDictionary.bat** jsem vygenerovat slovník.
+```bash
+HParse grammar wordnet
+```
 
-4. Pro pořízení nahrávek jsem v MATLABu naprogramoval a spustil skript **nahravani.m**, který projedu všechny slova s wlistu, ořízně začátky a konce pomocí detekce hlasové aktivity, a zařadí hlasové nahrávky do složky nahravky. Každý soubor jsem pojmenoval podle vzoru: ```<mluvčí>_<slovo>_<číslo_nahravky>.wav```.
+3. Pomocí dávky **02_MakeDictionary.bat** vygenerovat slovník.
 
-5. Připravil jsem seznamy pro parametrizaci spuštěním skriptu **pripravaProHCopy.m**, čímž jsem vytvořil složku *nahravky_param* a seznam *param.list*. Následně jsem spustil skript **pripravaTest.m**, který vytvořil složku test_param a seznamy pro testovací data.
+```bash
+HDMan -m -w wlist -n models0 -l dlog dict lexicon
+```
 
-6. Zvukové soubory jsem parametrizoval převodem do formátu MFC pomocí dávky **03_DoParameterization.bat**.
+4. Pro pořízení nahrávek jsem v MATLABu naprogramoval a spustitelný skript **m01_nahravani.m**, který vezme všechna slova s wlistu, ořízně začátky a konce pomocí detekce hlasové aktivity, a zařadí hlasové nahrávky do složky pro nahravky. Každý soubor je pojmenován podle vzoru:
+```<mluvčí>_<slovo>_<číslo_nahravky>.wav```.
 
-7. Popisky MLF jsem připravil spuštěním mých MATLAB skriptů **generate_trainMLF.m** a **generate_testMLF.m**.
+5. Připravil jsem seznamy pro parametrizaci spuštěním skriptu **m02_pripravaProHCopy.m**, čímž se vytvoří složka *nahravky_param* a seznam *param.list*. Následně lze spustil skript **m03_pripravaProTest.m**, který vytvoří složku *test_param.list* a seznamy pro testovací data.
+
+6. Zvukové soubory jsou parametrizovány převodem do formátu MFC pomocí dávky **03_DoParameterization.bat**.
+
+```bash
+HCopy -T 1 -C ParamConfig-MFCC39 -S param.list
+HCopy -T 1 -C ParamConfig-MFCC39 -S test_param.list
+```
+
+7. Popisky MLF jsem připravil spuštěním mých MATLAB skriptů **m04_generate_trainMLF.m** a **m05_generate_testMLF.m**.
 
 8. Inicializaci modelů výpočtem globálních variancí pomocí dávky **04_ComputeVariances.bat**.
 
-9. Pro dynamické vytvoření HMM definic, konkrétně souborů hmmdefs a macros, jsem naprogramoval a spustil skript **pripravaProHERest.m**.
+```bash
+mkdir hmm0 hmm1 hmm2 hmm3 hmm4 hmm5 hmm6
+HCompV -C TrainConfig-MFCC39 -f 0.01 -m -S train.scp -M hmm0 proto-8s-39f
+HCompV -C TrainConfig-MFCC39 -f 0.01 -m -S train.scp -M hmm0 proto-3s-39f
+```
 
-10. Modely jsou iterativně natrénovány pomocí spuštěním dávky **05_TrainModels.bat**, kontrétně progamem HERest, který aktualizuje parametry modelů na základě trénovacích dat. Kontrétně proběhne 6 iterací.
+9. Pro dynamické vytvoření HMM definic, konkrétně souborů hmmdefs a macros, je připravený skript **m06_pripravaProHERest.m**.
+
+10. Modely jsou iterativně natrénovány pomocí spuštitelné dávky **05_TrainModels.bat**, kontrétně progamem HERest, který aktualizuje parametry modelů na základě trénovacích dat. Kontrétně proběhne 6 iterací.
+
+```bash
+HERest -C TrainConfig-MFCC39 -I train.mlf -t 250.0 150.0 1000.0 -S train.scp -H hmm0/macros -H hmm0/hmmdefs -M hmm1 models0
+HERest -C TrainConfig-MFCC39 -I train.mlf -t 250.0 150.0 1000.0 -S train.scp -H hmm1/macros -H hmm1/hmmdefs -M hmm2 models0
+HERest -C TrainConfig-MFCC39 -I train.mlf -t 250.0 150.0 1000.0 -S train.scp -H hmm2/macros -H hmm2/hmmdefs -M hmm3 models0
+HERest -C TrainConfig-MFCC39 -I train.mlf -t 250.0 150.0 1000.0 -S train.scp -H hmm3/macros -H hmm3/hmmdefs -M hmm4 models0
+HERest -C TrainConfig-MFCC39 -I train.mlf -t 250.0 150.0 1000.0 -S train.scp -H hmm4/macros -H hmm4/hmmdefs -M hmm5 models0
+HERest -C TrainConfig-MFCC39 -I train.mlf -t 250.0 150.0 1000.0 -S train.scp -H hmm5/macros -H hmm5/hmmdefs -M hmm6 models0
+
+```
 
 11. Rozpoznávač je zkompilován dávkou **06_GrammarCompilation.bat**.
 
+```bash
+HParse grammar net
+```
+
 12. Modely se otestují pomocí dávky **10_RunTest.bat**, která provedede rozpoznání na testovacích datech prostřednictvím nástroje HVite.
 
-13. Celý rozpoznávač je vyhodnocen tak, že jsem si skriptem **pripravaProHResults.m** připravil referenční MLF soubor a dávkou **11_ComputeResults.bat** která spočítá a zobrazit celkovou přesnost rozpoznávače.
+```bash
+HVite -H hmm6/hmmdefs -S test.scp -i recout.mlf -w wordnet -p -70.0 -s 0 dict models0
+```
+
+13. Celý rozpoznávač je vyhodnocen tak, že jsem si skriptem **m07_pripravaProHResults.m** připravil referenční MLF soubor a dávkou **11_ComputeResults.bat** která spočítá a zobrazit celkovou přesnost rozpoznávače.
 
 ```bash
+HResults -e ??? SENT-START -e ??? SENT-END -t -I testref.mlf models0 recout.mlf
+
 ====================== HTK Results Analysis =======================
   Date: Thu Jun 11 23:05:21 2026
   Ref : testref.mlf
